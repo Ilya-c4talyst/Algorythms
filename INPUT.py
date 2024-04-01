@@ -54,3 +54,51 @@ transp = [[] for _ in range(4)]
 # # Импорт системной библиотеки, 
 # # при помощи которой будем считывать данные из стандартного потока ввода.
 # import sys
+
+# with open('input.txt', 'r', encoding='utf-8') as file:
+#     read_file = file.read()
+#     lines = read_file.split('\n')
+#     cases = int(lines[0])
+#     result = []
+#     for i in range(2, len(lines), 2):
+#         massive = [int(elem) for elem in lines[i].split()]
+#         test = []
+#         result = []
+#         i=0
+#         while i < len(massive):
+#             if not test:
+#                 test.append(massive[i])
+#                 i+=1
+#                 continue
+#             if massive[i] < len(test) + 1 or len(test) + 1 > min(test):
+#                 result.append(len(test))
+#                 test.clear()
+#                 test.append(massive[i])
+#             else:
+#                 test.append(massive[i])
+#             i+=1
+#         if test:
+#             if len(test) > min(test):
+#                 diff = len(test) - min(test)
+#                 result[-1] -= diff
+#                 result.append(len(test)+diff)
+#             else:
+#                 result.append(len(test))
+#         with open('output.txt', 'a') as file:
+#             file.write(str(len(result)) + '\n')
+#             for j in result:
+#                 file.write(str(j) + ' ')
+#             file.write('\n')
+with open('input.txt', 'r', encoding='utf-8') as file:
+    read_file = file.read()
+    lines = read_file.split('\n')
+    cases = int(lines[0])
+    result = []
+    for i in range(1, cases * 2 + 1, 2):
+        h = int(lines[i])
+        massive = [int(elem) for elem in lines[i+1].split()]
+        with open('output.txt', 'a') as file:
+            file.write(str(len(result)) + '\n')
+            for j in result:
+                file.write(str(j) + ' ')
+            file.write('\n')
